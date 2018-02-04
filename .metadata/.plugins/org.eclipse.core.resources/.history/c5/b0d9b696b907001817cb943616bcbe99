@@ -1,0 +1,84 @@
+package test;
+import java.util.Scanner;
+public class main {
+	int[]r= new int[10];
+	 Scanner s= new Scanner(System.in);
+	public int[] insertDate(int []a,int i,int index) {
+		int[]d= a;
+			d[index]=i;
+			for(int w:d) {
+				System.out.println(w);
+			}
+			
+		
+		a=d;
+		return d;
+	}
+	 public void main() {
+		 System.out.println("********************************************");
+		 System.out.println("1--插入数据");
+		 System.out.println("2--显示所有数据");
+		 System.out.println("3--在指定位置处插入数据");
+		 System.out.println("4--查询能被3整除的数据");
+		 System.out.println("0--退出");
+		 System.out.println("********************************************");
+
+		 int n=s.nextInt();
+		 
+		 switch(n) {
+		 	case 1:
+		 		
+		 			for(int i=1;i<r.length+1;i++) {
+		 				
+			 			System.out.println("请输入第"+i+"个数字(o for exit)");
+			 			int a=s.nextInt();
+			 			if(a!=0) {
+			 				r=insertDate(r, a,i-1);
+			 			}else {
+			 				System.out.println("Exited");
+			 				break;
+			 			}
+			 			
+			 			
+		 			}
+		 		
+			case 2:
+					for(int e:r) {
+						System.out.print(e+" ");
+					}
+				break;
+			case 3:
+					System.out.println("请输入插入位置");
+		 			int position=s.nextInt();
+		 			System.out.println("请输入插入数字");
+		 			int number=s.nextInt();
+					for(int i=0;i<r.length-1;i++) {
+						int w=r.length-1-i;
+							if(w>position) {
+								r[w]=r[w-1];
+							}
+						
+							
+							
+					}
+					r[position]=number;
+				break;
+			case 4:
+					for(int e:r) {
+						if(e%3==0 && e!=0) {
+							System.out.print(e);
+						}
+					}
+				break;
+			case 5:
+					System.out.println("Exited!");
+				break;
+				
+		 }
+		 main();
+	 }
+	public static void main(String [] args) {
+		main m = new main();
+		m.main();
+	}
+}
