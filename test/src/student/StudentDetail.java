@@ -1,15 +1,27 @@
 package student;
-
+/**
+ * @author Reggi
+ *
+ */
 public class StudentDetail {
 	private String name;
 	private String studentId;
 	private String sex;
 	private int age;
-	StudentDetail(String name,String studentId,String sex,int age){
+	private Subject subject;
+	public Subject getSubject() {
+		return subject;
+	}
+	public void setSubject(Subject subject) {
+		this.subject = subject;
+	}
+	
+	StudentDetail(String name,String studentId,String sex,int age,Subject subject){
 		this.setName(name);
 		this.setStudentId(studentId);
 		this.setSex(sex);
 		this.setAge(age);
+		this.setSubject(subject);
 		System.out.println(message());
 	}
 	public String getName() {
@@ -36,8 +48,13 @@ public class StudentDetail {
 	public void setAge(int age) {
 		this.age = age;
 	}
+	/**
+	 * 将信息放在String message里面，在构造方法中输出。
+	 * @parm message
+	 * @return
+	 */
 	public String message() {
-		String message="学生信息如下：\n姓名："+getName()+"\n学号:"+getStudentId()+"\n性别："+getSex()+"\n年龄"+getAge()+"\n===============================";
+		String message="学生信息如下：\n姓名："+getName()+"\n学号:"+getStudentId()+"\n性别："+getSex()+"\n年龄"+getAge()+"\n学编"+subject.getSubjectId()+"\n科目名称"+subject.getSubjectName()+"\n===============================";
 		return message;
 		
 	}
