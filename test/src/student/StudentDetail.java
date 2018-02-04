@@ -16,6 +16,13 @@ public class StudentDetail {
 		this.subject = subject;
 	}
 	
+	/**将从对象中的取值封装输出。
+	 * @param name
+	 * @param studentId
+	 * @param sex
+	 * @param age
+	 * @param subject
+	 */
 	StudentDetail(String name,String studentId,String sex,int age,Subject subject){
 		this.setName(name);
 		this.setStudentId(studentId);

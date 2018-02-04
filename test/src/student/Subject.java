@@ -4,11 +4,41 @@ public class Subject {
 	private String subjectName;
 	private String subjectId;
 	private int subjectYear;
+	private StudentDetail[] studentDetail;
+	private int Num;
+	public StudentDetail[] getStudentDetail() {
+if(studentDetail==null) {
+			studentDetail=new StudentDetail[200];
+		}
+		return studentDetail;
+	}
+	public int getNum() {
+		return Num;
+	}
+	public void setNum(int num) {
+		Num = num;
+	}
+	public void setStudentDetail(StudentDetail[] studentDetail) {
+		
+		this.studentDetail = studentDetail;
+	}
 	Subject(String subjectName,String subjectId,int subjectYear){
 		this.setSubjectName(subjectName);
 		this.setSubjectId(subjectId);
 		this.setSubjectYear(subjectYear);
 		System.out.println(message());
+	}
+	public void addStudent(StudentDetail sd) {
+		for(int i=0;i<this.getStudentDetail().length;i++) {
+			if(this.getStudentDetail()[i]==null) {
+				sd.setSubject(this);
+				this.getStudentDetail()[i]=sd;
+				Num=i+1;
+				setNum(Num);
+				break;
+			}
+			
+		}
 	}
 	public String getSubjectName() {
 		return subjectName;
